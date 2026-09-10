@@ -1,0 +1,473 @@
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+  position: relative;
+
+  width: 100%;
+  height: 96px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 68px;
+
+  background: #ffffff;
+
+  border-bottom: 1px solid #f1f5f9;
+
+  z-index: 100;
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.navbar-logo {
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  flex-shrink: 0;
+}
+
+
+.logo-icon {
+  position: relative;
+
+  width: 50px;
+  height: 54px;
+}
+
+
+.logo-page {
+  position: absolute;
+
+  left: 3px;
+  top: 2px;
+
+  width: 31px;
+  height: 47px;
+
+  border: 4px solid #1769ff;
+
+  border-radius: 8px;
+}
+
+
+.logo-page::before {
+  content: "";
+
+  position: absolute;
+
+  right: -4px;
+  top: -4px;
+
+  width: 14px;
+  height: 14px;
+
+  background: #ffffff;
+
+  border-left: 4px solid #1769ff;
+  border-bottom: 4px solid #1769ff;
+
+  border-radius: 0 0 0 4px;
+}
+
+
+/* Search circle */
+
+.logo-search {
+  position: absolute;
+
+  width: 20px;
+  height: 20px;
+
+  right: 2px;
+  bottom: 2px;
+
+  background: #ffffff;
+
+  border: 4px solid #1769ff;
+
+  border-radius: 50%;
+}
+
+
+.logo-search::after {
+  content: "";
+
+  position: absolute;
+
+  width: 9px;
+  height: 4px;
+
+  right: -7px;
+  bottom: -4px;
+
+  background: #1769ff;
+
+  border-radius: 4px;
+
+  transform: rotate(48deg);
+}
+
+
+/* Logo lines */
+
+.logo-line {
+  position: absolute;
+
+  left: 10px;
+
+  height: 3px;
+
+  background: #1769ff;
+
+  border-radius: 3px;
+}
+
+
+.logo-line-1 {
+  top: 20px;
+  width: 13px;
+}
+
+
+.logo-line-2 {
+  top: 28px;
+  width: 8px;
+}
+
+
+/* =====================================================
+   LOGO TEXT
+===================================================== */
+
+.logo-text {
+  font-size: 30px;
+
+  font-weight: 700;
+
+  letter-spacing: -1.2px;
+}
+
+
+.logo-doc {
+  color: #14284b;
+}
+
+
+.logo-search-text {
+  color: #1769ff;
+}
+
+
+/* =====================================================
+   NAV LINKS
+===================================================== */
+
+.nav-links {
+  position: absolute;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  height: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 48px;
+}
+
+
+.nav-link {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  height: 100%;
+
+  color: #10234a;
+
+  font-size: 16px;
+
+  font-weight: 500;
+
+  transition:
+    color 0.2s ease;
+}
+
+
+.nav-link:hover {
+  color: #1769ff;
+}
+
+
+.nav-link.active {
+  color: #1769ff;
+}
+
+
+.nav-link.active::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+
+  bottom: 14px;
+
+  transform: translateX(-50%);
+
+  width: 65px;
+  height: 3px;
+
+  background: #1769ff;
+
+  border-radius: 4px;
+}
+
+
+/* =====================================================
+   NAV ACTIONS
+===================================================== */
+
+.navbar-actions {
+  margin-left: auto;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 35px;
+}
+
+
+/* =====================================================
+   THEME BUTTON
+===================================================== */
+
+.theme-button {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: transparent;
+
+  cursor: pointer;
+}
+
+
+.sun-icon {
+  position: relative;
+
+  width: 25px;
+  height: 25px;
+
+  display: block;
+}
+
+
+.sun-center {
+  position: absolute;
+
+  width: 13px;
+  height: 13px;
+
+  left: 6px;
+  top: 6px;
+
+  border: 2px solid #64748b;
+
+  border-radius: 50%;
+}
+
+
+.sun-ray {
+  position: absolute;
+
+  left: 11px;
+  top: 0;
+
+  width: 2px;
+  height: 5px;
+
+  background: #64748b;
+
+  border-radius: 2px;
+
+  transform-origin: 1px 12px;
+}
+
+
+.ray-1 {
+  transform: rotate(0deg);
+}
+
+
+.ray-2 {
+  transform: rotate(45deg);
+}
+
+
+.ray-3 {
+  transform: rotate(90deg);
+}
+
+
+.ray-4 {
+  transform: rotate(135deg);
+}
+
+
+.ray-5 {
+  transform: rotate(180deg);
+}
+
+
+.ray-6 {
+  transform: rotate(225deg);
+}
+
+
+.ray-7 {
+  transform: rotate(270deg);
+}
+
+
+.ray-8 {
+  transform: rotate(315deg);
+}
+
+
+/* =====================================================
+   GET STARTED
+===================================================== */
+
+.get-started {
+  height: 54px;
+
+  padding: 0 32px;
+
+  background: #1769ff;
+
+  color: #ffffff;
+
+  border-radius: 11px;
+
+  font-size: 16px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 20px rgba(23, 105, 255, 0.16);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.get-started:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 25px rgba(23, 105, 255, 0.22);
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 1050px) {
+
+  .navbar {
+    padding: 0 35px;
+  }
+
+  .nav-links {
+    gap: 28px;
+  }
+
+  .navbar-actions {
+    gap: 15px;
+  }
+
+}
+
+
+@media (max-width: 850px) {
+
+  .navbar {
+    height: 80px;
+
+    padding: 0 25px;
+  }
+
+  .logo-text {
+    font-size: 24px;
+  }
+
+  .logo-icon {
+    transform: scale(0.85);
+    transform-origin: left center;
+    margin-right: -7px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .navbar-actions {
+    gap: 10px;
+  }
+
+  .get-started {
+    height: 46px;
+
+    padding: 0 20px;
+
+    font-size: 14px;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .navbar {
+    padding: 0 18px;
+  }
+
+  .logo-text {
+    font-size: 21px;
+  }
+
+  .theme-button {
+    display: none;
+  }
+
+  .get-started {
+    height: 42px;
+
+    padding: 0 15px;
+
+    font-size: 13px;
+  }
+
+}

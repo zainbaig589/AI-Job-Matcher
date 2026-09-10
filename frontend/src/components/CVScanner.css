@@ -1,0 +1,865 @@
+/* =========================
+   MAIN SCANNER
+========================= */
+
+.cv-scanner {
+  position: relative;
+
+  width: 100%;
+  max-width: 850px;
+  height: 560px;
+
+  background: transparent;
+
+  border: none;
+  border-radius: 0;
+
+  overflow: visible;
+
+  box-shadow: none;
+
+  font-family: Inter, Arial, sans-serif;
+}
+
+
+/* =========================
+   BACKGROUND GLOW
+========================= */
+
+.scanner-glow {
+  position: absolute;
+
+  width: 500px;
+  height: 500px;
+
+  left: 50%;
+  top: 45%;
+
+  transform: translate(-50%, -50%);
+
+  background: radial-gradient(
+    circle,
+    rgba(37, 99, 235, 0.12),
+    rgba(37, 99, 235, 0.03),
+    transparent 70%
+  );
+
+  filter: blur(20px);
+
+  pointer-events: none;
+
+  z-index: 0;
+}
+
+
+/* =========================
+   SCANNER STAGE
+========================= */
+
+.scanner-stage {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+
+  top: 20px;
+  bottom: 20px;
+
+  z-index: 1;
+}
+
+
+/* =========================
+   CV DOCUMENT
+========================= */
+
+.cv-document {
+  position: absolute;
+
+  width: 220px;
+  height: 300px;
+
+  left: 50%;
+  top: 48%;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(-3deg);
+
+  background: #ffffff;
+
+  border: 1px solid #bfdbfe;
+  border-radius: 8px;
+
+  padding: 24px;
+
+  box-sizing: border-box;
+
+  box-shadow:
+    0 20px 45px rgba(30, 64, 175, 0.20);
+
+  z-index: 5;
+
+  animation:
+    cvMove 6s infinite ease-in-out;
+
+  /* Prevent visual flickering */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+
+  will-change:
+    left,
+    transform,
+    opacity;
+}
+
+
+/* =========================
+   CV MOVEMENT
+========================= */
+
+@keyframes cvMove {
+
+  /* CV appears */
+  0% {
+    left: 50%;
+
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      rotate(-3deg)
+      scale(1);
+  }
+
+  /* Stay visible before scanning */
+  20% {
+    left: 50%;
+
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      rotate(-3deg)
+      scale(1);
+  }
+
+  /* Finish scanning */
+  42% {
+    left: 50%;
+
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      rotate(0deg)
+      scale(1);
+  }
+
+  /* Move toward processed documents */
+  58% {
+    left: 69%;
+
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      rotate(7deg)
+      scale(0.72);
+  }
+
+  /* Continue moving */
+  70% {
+    left: 76%;
+
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      rotate(8deg)
+      scale(0.55);
+  }
+
+  /* Fade only after reaching destination */
+  76% {
+    left: 76%;
+
+    opacity: 0;
+
+    transform:
+      translate(-50%, -50%)
+      rotate(8deg)
+      scale(0.55);
+  }
+
+  /* Reset position while invisible */
+  80% {
+    left: 50%;
+
+    opacity: 0;
+
+    transform:
+      translate(-50%, -50%)
+      rotate(-3deg)
+      scale(1);
+  }
+
+  /* Appear again */
+  88% {
+    left: 50%;
+
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      rotate(-3deg)
+      scale(1);
+  }
+
+  100% {
+    left: 50%;
+
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      rotate(-3deg)
+      scale(1);
+  }
+
+}
+
+
+/* =========================
+   CV HEADER
+========================= */
+
+.cv-header {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 18px;
+}
+
+
+.cv-avatar {
+  width: 38px;
+  height: 38px;
+
+  border-radius: 50%;
+
+  background: #dbeafe;
+
+  position: relative;
+
+  flex-shrink: 0;
+}
+
+
+.cv-avatar::after {
+  content: "";
+
+  position: absolute;
+
+  width: 14px;
+  height: 14px;
+
+  background: #2563eb;
+
+  border-radius: 50%;
+
+  left: 12px;
+  top: 7px;
+}
+
+
+.cv-name {
+  font-size: 13px;
+
+  font-weight: 700;
+
+  color: #0f172a;
+}
+
+
+.cv-role {
+  font-size: 9px;
+
+  color: #64748b;
+
+  margin-top: 3px;
+}
+
+
+/* =========================
+   CV LINES
+========================= */
+
+.cv-line {
+  height: 5px;
+
+  background: #e2e8f0;
+
+  border-radius: 5px;
+
+  margin: 8px 0;
+}
+
+
+.cv-line.large {
+  width: 100%;
+}
+
+
+.cv-line.short {
+  width: 60%;
+}
+
+
+/* =========================
+   CV SECTION TITLES
+========================= */
+
+.cv-section-title {
+  margin-top: 20px;
+  margin-bottom: 8px;
+
+  font-size: 8px;
+
+  font-weight: 800;
+
+  color: #2563eb;
+
+  letter-spacing: 1px;
+}
+
+
+/* =========================
+   SKILLS
+========================= */
+
+.skills {
+  display: flex;
+
+  gap: 5px;
+
+  margin-top: 10px;
+}
+
+
+.skills span {
+  padding: 4px 7px;
+
+  background: #eff6ff;
+
+  color: #1d4ed8;
+
+  font-size: 7px;
+
+  border-radius: 5px;
+}
+
+
+/* =========================
+   RED SCANNING LASER
+========================= */
+
+.scan-line {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+
+  top: 0;
+
+  height: 2px;
+
+  background: #ef4444;
+
+  box-shadow:
+    0 0 12px #ef4444,
+    0 0 25px rgba(239, 68, 68, 0.8);
+
+  animation:
+    scan 1.8s infinite ease-in-out;
+
+  z-index: 10;
+
+  pointer-events: none;
+}
+
+
+.scan-line span {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+
+  height: 25px;
+
+  top: -12px;
+
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(239, 68, 68, 0.18),
+    transparent
+  );
+}
+
+
+@keyframes scan {
+
+  0% {
+    top: 5%;
+  }
+
+  50% {
+    top: 95%;
+  }
+
+  100% {
+    top: 5%;
+  }
+
+}
+
+
+/* =========================
+   PROCESSING CARD
+========================= */
+
+.processing-card {
+  position: absolute;
+
+  right: 7%;
+  top: 8%;
+
+  width: 205px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 12px 14px;
+
+  background: rgba(255, 255, 255, 0.95);
+
+  border: 1px solid #dbeafe;
+
+  border-radius: 12px;
+
+  box-shadow:
+    0 12px 30px rgba(30, 64, 175, 0.12);
+
+  z-index: 20;
+
+  animation:
+    processing 6s infinite;
+}
+
+
+.processing-icon {
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #dbeafe;
+
+  color: #1d4ed8;
+
+  border-radius: 8px;
+
+  font-weight: 800;
+
+  flex-shrink: 0;
+}
+
+
+.processing-content {
+  display: flex;
+
+  flex-direction: column;
+
+  flex: 1;
+
+  gap: 4px;
+
+  min-width: 0;
+}
+
+
+.processing-content strong {
+  font-size: 10px;
+
+  color: #0f172a;
+}
+
+
+.processing-content span {
+  font-size: 8px;
+
+  color: #64748b;
+}
+
+
+/* =========================
+   PROGRESS BAR
+========================= */
+
+.progress {
+  width: 100%;
+  height: 4px;
+
+  background: #dbeafe;
+
+  border-radius: 5px;
+
+  overflow: hidden;
+}
+
+
+.progress div {
+  height: 100%;
+
+  width: 0%;
+
+  background: #2563eb;
+
+  border-radius: 5px;
+
+  animation:
+    progress 6s infinite;
+}
+
+
+@keyframes progress {
+
+  0% {
+    width: 0%;
+  }
+
+  20% {
+    width: 15%;
+  }
+
+  50% {
+    width: 70%;
+  }
+
+  70% {
+    width: 98%;
+  }
+
+  100% {
+    width: 0%;
+  }
+
+}
+
+
+.processing-percent {
+  font-size: 9px;
+
+  font-weight: 700;
+
+  color: #2563eb;
+}
+
+
+/* =========================
+   PROCESSING ANIMATION
+========================= */
+
+@keyframes processing {
+
+  0%,
+  15% {
+    opacity: 0.5;
+
+    transform:
+      translateY(-5px);
+  }
+
+  25%,
+  70% {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+
+  85%,
+  100% {
+    opacity: 0.5;
+
+    transform:
+      translateY(-5px);
+  }
+
+}
+
+
+/* =========================
+   PROCESSED STACK
+========================= */
+
+.processed-stack {
+  position: absolute;
+
+  right: 3%;
+  bottom: 5%;
+
+  width: 125px;
+  height: 125px;
+
+  z-index: 15;
+}
+
+
+.stack-title {
+  position: absolute;
+
+  top: -22px;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+
+  color: #2563eb;
+}
+
+
+.stack-cv {
+  position: absolute;
+
+  width: 105px;
+  height: 70px;
+
+  right: 0;
+
+  background: #ffffff;
+
+  border: 1px solid #bfdbfe;
+
+  border-radius: 7px;
+
+  box-shadow:
+    0 8px 18px rgba(30, 64, 175, 0.12);
+
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 10px;
+
+  box-sizing: border-box;
+}
+
+
+.stack-1 {
+  bottom: 0;
+
+  animation:
+    stack1 6s infinite;
+}
+
+
+.stack-2 {
+  bottom: 12px;
+  right: 8px;
+
+  animation:
+    stack2 6s infinite;
+}
+
+
+.stack-3 {
+  bottom: 24px;
+  right: 16px;
+
+  animation:
+    stack3 6s infinite;
+}
+
+
+/* =========================
+   STACK ANIMATIONS
+========================= */
+
+@keyframes stack1 {
+
+  0%,
+  60% {
+    transform:
+      translateX(0);
+
+    opacity: 1;
+  }
+
+  70% {
+    transform:
+      translateX(-10px);
+  }
+
+  100% {
+    transform:
+      translateX(0);
+  }
+
+}
+
+
+@keyframes stack2 {
+
+  0%,
+  65% {
+    transform:
+      translateX(0);
+  }
+
+  70% {
+    transform:
+      translateX(-8px);
+  }
+
+  100% {
+    transform:
+      translateX(0);
+  }
+
+}
+
+
+@keyframes stack3 {
+
+  0%,
+  65% {
+    transform:
+      translateX(0);
+  }
+
+  70% {
+    transform:
+      translateX(-5px);
+  }
+
+  100% {
+    transform:
+      translateX(0);
+  }
+
+}
+
+
+/* =========================
+   MINI CV
+========================= */
+
+.mini-avatar {
+  width: 22px;
+  height: 22px;
+
+  border-radius: 50%;
+
+  background: #dbeafe;
+
+  flex-shrink: 0;
+}
+
+
+.mini-lines {
+  width: 50px;
+  height: 6px;
+
+  border-radius: 5px;
+
+  background: #bfdbfe;
+
+  box-shadow:
+    0 10px 0 #e2e8f0,
+    0 20px 0 #e2e8f0;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 700px) {
+
+  .cv-scanner {
+    height: 480px;
+  }
+
+
+  .cv-document {
+    width: 180px;
+    height: 250px;
+
+    padding: 20px;
+  }
+
+
+  .processing-card {
+    right: 3%;
+
+    width: 160px;
+  }
+
+
+  .processed-stack {
+    right: 1%;
+
+    transform:
+      scale(0.8);
+  }
+
+}
+
+
+@media (max-width: 500px) {
+
+  .cv-scanner {
+    height: 450px;
+
+    border-radius: 0;
+  }
+
+
+  .scanner-stage {
+    top: 10px;
+    bottom: 10px;
+  }
+
+
+  .cv-document {
+    width: 165px;
+    height: 225px;
+
+    padding: 18px;
+  }
+
+
+  .processing-card {
+    width: 145px;
+
+    padding: 10px;
+  }
+
+
+  .processed-stack {
+    transform:
+      scale(0.7);
+  }
+
+}
