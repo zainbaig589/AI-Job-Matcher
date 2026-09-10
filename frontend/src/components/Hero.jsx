@@ -2,6 +2,8 @@ import { useRef, useState } from "react";
 import CVScanner from "./CVScanner";
 import "./Hero.css";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 export default function Hero() {
 
   // ==================================================
@@ -44,7 +46,7 @@ export default function Hero() {
     try {
 
       const response = await fetch(
-        "http://127.0.0.1:8000/cvs/upload-csv",
+  `${API_URL}/cvs/upload-csv`,
         {
           method: "POST",
           body: formData
@@ -100,11 +102,10 @@ export default function Hero() {
     try {
 
       const response = await fetch(
-        `http://127.0.0.1:8000/search?query=${encodeURIComponent(
-          searchQuery
-        )}&limit=10`
-      );
-
+  `${API_URL}/search?query=${encodeURIComponent(
+    searchQuery
+  )}&limit=10`
+);
       const data = await response.json();
 
       if (!response.ok) {
